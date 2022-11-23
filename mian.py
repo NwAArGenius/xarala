@@ -16,6 +16,7 @@ def get_create():
   con.execute("CREATE TABLE IF NOT EXISTS categorie_D(id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR)")
   con.execute("CREATE TABLE IF NOT EXISTS categorie_R(id INTEGER PRIMARY KEY AUTOINCREMENT , name VARCHAR)")
   connexion.commit()
+  
   connexion.close()
  
   
@@ -43,12 +44,12 @@ def get_insert_depenses():
   
  connexion = sqlite3.connect('databas.db')
  con = connexion.cursor()
- con.execute("DROP TABLE IF  EXISTS depenses")
- montant = int(input(" montant :: "))
+ montant = int(input(" MONTANT :: "))
  date= float(input(" Date :: "))
  categorie = int(input(" categories :: "))
  con.execute("INSERT INTO depenses (montant,date,categorie_id)VALUES(?,?,?)",(montant,date,categorie))
  connexion.commit()
+ con.close()
  connexion.close()
   
    
@@ -56,29 +57,29 @@ def get_insert_depenses():
 def get_create_table_R():
    connexion = sqlite3.connect('databas.db')
    con = connexion.cursor()
-   con.execute("DROP TABLE IF EXISTS revenue")
    con.execute("CREATE TABLE IF NOT EXISTS revenue(id INTEGER PRIMARY KEY  AUTOINCREMENT , montant INTEGER, date TEXT , categorie_id INTEGER ,FOREIGN KEY (categorie_id) REFERENCES categorie_R(id) )")
    connexion.commit()
+   con.close()
    connexion.close()
   
    
 def get_insert_revenue():
  connexion = sqlite3.connect('databas.db')
  con = connexion.cursor()
- con.execute("DROP TABLE IF EXISTS revenue")
  montant = int(input(" montant :: "))
  date= float(input(" Date :: "))
  categorie = int(input(" categories :: "))
  con.execute("INSERT INTO revenue (montant,date,categorie_id)VALUES(?,?,?)",(montant,date,categorie))
  connexion.commit()
+ con.close()
  connexion.close()
       
   
   
-get_create()
-get_insert_categories()
-get_create_table_D()
-get_create_table_R()
+#get_create()
+#get_insert_categories()
+#get_create_table_D()
+#get_create_table_R()
  
 def menu():
  print("DASBORD USER")
