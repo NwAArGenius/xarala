@@ -96,4 +96,4 @@ def menu():
   
  
 menu()
-connexion.close() 
+connexion.close()   
