@@ -80,7 +80,7 @@ def get_insert_revenue():
 #get_insert_categories()
 #get_create_table_D()
 #get_create_table_R()
- 
+
 def menu():
  print("DASBORD USER")
  print("\t\t\t\t")
